@@ -4,8 +4,8 @@ from models.author import Author
 
 
 def save(author):
-    sql = "INSERT INTO authors (first_name, last_name, fb_page, twitter, instagram, active) VALUES (%s, %s, %s, %s, %s, %s) RETURNING id"
-    values = [author.first_name, author.last_name, author.fb_page, author.twitter, author.instagram, author.active]
+    sql = "INSERT INTO authors (first_name, last_name, fb_page, twitter, instagram, active, author_id) VALUES (%s, %s, %s, %s, %s, %s, %s) RETURNING id"
+    values = [author.first_name, author.last_name, author.fb_page, author.twitter, author.instagram, author.active, author.id]
     results = run_sql(sql, values)
     id = results[0]['id']
     author.id = id
@@ -35,10 +35,10 @@ def select_all():
     return authors
     
 
-# #DELETE ALL
-# def delete_all():
-#     sql = 'DELETE FROM authors'
-#     run_sql(sql)
+#DELETE ALL
+def delete_all():
+    sql = 'DELETE FROM authors'
+    run_sql(sql)
     
 #DELETE ONE
 def delete(id):
@@ -59,7 +59,7 @@ def edit(author):
     values = [author.first_name, author.last_name, author.fb_page, author.member_twitter, author.instagram, author.active, author.id]
     run_sql(sql, values)
     
-# EDIT AUTHOR BY ID 
+#ADD AUTHOR BY ID 
 def add(author):
     sql = 'INSERT INTO authors (first_name, last_name, fb_page, twitter, instagram, active) VALUES (%s, %s, %s, %s, %s, %s) RETURNING id'
     values = [author.first_name, author.last_name, author.fb_page, author.twitter, author.instagram, author.active, author.id]
