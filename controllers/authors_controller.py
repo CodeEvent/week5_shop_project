@@ -1,4 +1,6 @@
+from multiprocessing.dummy import active_children
 from flask import Flask, render_template, request, redirect, Blueprint
+from sqlalchemy import lateral
 from models.author import Author
 import repositories.book_repo as book_repo
 import repositories.author_repo as author_repo
@@ -19,6 +21,14 @@ def list_of_authors():
 #save a new author
 @authors_blueprint.route("/authors", methods=['POST'])
 def save_added_author():
+    first_name = request.form['first_name']
+    last_name = request.form ['last_name']
+    active = request.form['active']
+    fb_page = request.form['fb_page']
+    twitter = request.form['twitter']
+    instagram = request.form['instagram']
+    author = Author(first_name, last_name, fb_page, twitter, instagram, active)
+    author_repo.save(author)
     return redirect("/authors")
 
 #show individual authors by their id
@@ -34,7 +44,17 @@ def edit_author_by_id_already_populated(id):
 
 @authors_blueprint.route('/authors/<id>', methods=['POST'])
 def update_author(id):
+    author = author_repo.select(id)
+    first_name = request.form['first_name']
+    last_name = request.form ['last_name']
+    active = request.form['active']
+    author.first_name = first_name
+    author.last_name = last_name
+    author.active = active
+    author_repo.update(author)
     return redirect('/authors')
+
+
 
 
 

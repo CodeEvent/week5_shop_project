@@ -1,14 +1,5 @@
 class Book:
-    def __init__(self, 
-                 title, 
-                 description,
-                 stock_quantity, 
-                 buying_cost, 
-                 selling_price, 
-                 genre,  
-                 ISBN_code, 
-                 author_id, 
-                 id = None):
+    def __init__(self, title, description,stock_quantity, buying_cost, selling_price, genre,  ISBN_code, author_id, id = None):
         
         self.title = title
         self.description = description

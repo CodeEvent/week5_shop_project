@@ -5,15 +5,15 @@ from models.author import Author
 import repositories.author_repo as author_repo
 
 
-
+author_repo.delete_all()
 
 author1 = Author('Steven', "Dionisio", 'fb_stdio', 'twitter_stdio', 'insta_stdio', True)
 author_repo.save(author1)
 
 
-# author_repo.delete_all()
+
 author_repo.update(author1)
-author_repo.delete(author1.id)
 
 
-pdb.set_trace()
+
+# pdb.set_trace

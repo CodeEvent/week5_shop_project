@@ -1,4 +1,4 @@
--- DROP TABLE IF EXISTS books;
+DROP TABLE IF EXISTS books;
 DROP TABLE IF EXISTS authors;
 
 CREATE TABLE authors (
@@ -11,3 +11,12 @@ CREATE TABLE authors (
   active BOOLEAN
 );
 
+CREATE TABLE books (
+  id SERIAL PRIMARY KEY,
+  title VARCHAR(255),
+  description VARCHAR(255),
+  fb_page VARCHAR(255), 
+  twitter VARCHAR(255), 
+  instagram VARCHAR(255),
+  active BOOLEAN
+);

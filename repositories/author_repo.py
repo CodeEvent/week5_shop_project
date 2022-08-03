@@ -49,14 +49,14 @@ def delete(id):
 #UPDATE AUTHOR'S OBJECT IN THE DB
 def update(author):
     sql = "UPDATE authors SET (first_name, last_name, fb_page, twitter, instagram, active) = (%s,%s,%s,%s,%s, %s) WHERE id = %s"
-    values = [author.first_name, author.last_name, author.fb_page, author.twitter, author.instagram, author.active]
+    values = [author.first_name, author.last_name, author.fb_page, author.twitter, author.instagram, author.active, author.id]
     run_sql(sql, values)
     
     
 # EDIT AUTHOR BY ID
 def edit(author):
     sql = 'UPDATE members SET (first_name, last_name, fb_page, twitter, instagram,active) = (%s, %s, %s, %s, %s, %s) WHERE id = %s'
-    values = [author.first_name, author.last_name, author.fb_page, author.member_twitter, author.instagram, author.active]
+    values = [author.first_name, author.last_name, author.fb_page, author.member_twitter, author.instagram, author.active, author.id]
     run_sql(sql, values)
     
 # EDIT AUTHOR BY ID 
