@@ -7,6 +7,7 @@ CREATE TABLE authors (
   last_name VARCHAR(255),
   fb_page VARCHAR(255), 
   twitter VARCHAR(255), 
-  instagram VARCHAR(255)
+  instagram VARCHAR(255),
+  active BOOLEAN
 );
 

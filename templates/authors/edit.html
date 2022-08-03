@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<form action="/authors/{{author.id}}" method="post">
+  <div>
+    <label for="first_name">First name:</label>
+    <input type="text" id="first_name" name="first_name" value="{{author.first_name}}" required>
+  </div>
+
+  <div>
+    <label for="last_name">Last name:</label>
+    <input type="text" id="last_name" name="last_name" value="{{author.last_name}}" required>
+  </div>
+
+
+
+  <div>
+    <label for="active">Author status:</label>
+    <select id="active" name="active">
+
+      <option value="true"
+        {% if author.active == True %} selected="selected" {% endif %}>
+        True
+      </option>
+
+      <option value="false"
+        {% if author.active == False %} selected="selected" {% endif %}>
+        False
+      </option>
+
+    </select>
+  </div>
+
+  <button type="submit">Update Book</button>
+
+</form>
+
+{% endblock %}

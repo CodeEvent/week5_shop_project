@@ -1,13 +1,11 @@
-from re import S
 from unittest import result
 from db.run_sql import run_sql
-
 from models.author import Author
 
 
 def save(author):
-    sql = "INSERT INTO authors (first_name, last_name, fb_page, twitter, instagram) VALUES (%s, %s, %s, %s, %s) RETURNING id"
-    values = [author.first_name, author.last_name, author.fb_page, author.twitter, author.instagram]
+    sql = "INSERT INTO authors (first_name, last_name, fb_page, twitter, instagram, active) VALUES (%s, %s, %s, %s, %s, %s) RETURNING id"
+    values = [author.first_name, author.last_name, author.fb_page, author.twitter, author.instagram, author.active]
     results = run_sql(sql, values)
     id = results[0]['id']
     author.id = id
@@ -16,19 +14,31 @@ def save(author):
 #SELECT ONE
 def select(id):
     author = None
-    sql = "SELECT * FROM author WHERE id = %s"
+    sql = "SELECT * FROM authors WHERE id = %s"
     values = [id]
     results = run_sql(sql, values)
     
     if results:
         result = results[0]
-        author = Author(result['first_name'], result['last_name'], result['fb_page'], result['twitter'], result['instagram'], result['id'])
+        author = Author(result['first_name'], result['last_name'], result['fb_page'], result['twitter'], result['instagram'], result['active'], result['id'])
     return author
 
-#DELETE ALL
-def delete_all():
-    sql = 'DELETE FROM authors'
-    run_sql(sql)
+# SELECT ALL AUTHORS
+def select_all():
+    authors = []
+    sql = 'SELECT * FROM authors'
+    results = run_sql(sql)
+    
+    for row in results:
+        author = Author(row['first_name'], row['last_name'], row['fb_page'], row['twitter'], row['instagram'], row['active'], row['id'])
+        authors.append(author)
+    return authors
+    
+
+# #DELETE ALL
+# def delete_all():
+#     sql = 'DELETE FROM authors'
+#     run_sql(sql)
     
 #DELETE ONE
 def delete(id):
@@ -38,21 +48,21 @@ def delete(id):
     
 #UPDATE AUTHOR'S OBJECT IN THE DB
 def update(author):
-    sql = "UPDATE authors SET (first_name, last_name, fb_page, twitter, instagram) = (%s,%s,%s,%s,%s) WHERE id = %s"
-    values = [author.first_name, author.last_name, author.fb_page, author.twitter, author.instagram, author.id]
+    sql = "UPDATE authors SET (first_name, last_name, fb_page, twitter, instagram, active) = (%s,%s,%s,%s,%s, %s) WHERE id = %s"
+    values = [author.first_name, author.last_name, author.fb_page, author.twitter, author.instagram, author.active]
     run_sql(sql, values)
     
     
 # EDIT AUTHOR BY ID
 def edit(author):
-    sql = 'UPDATE members SET (first_name, last_name, fb_page, twitter, instagram) = (%s, %s, %s, %s, %s) WHERE id = %s'
-    values = [author.first_name, author.last_name, author.fb_page, author.member_twitter, author.instagram, author.id]
+    sql = 'UPDATE members SET (first_name, last_name, fb_page, twitter, instagram,active) = (%s, %s, %s, %s, %s, %s) WHERE id = %s'
+    values = [author.first_name, author.last_name, author.fb_page, author.member_twitter, author.instagram, author.active]
     run_sql(sql, values)
     
 # EDIT AUTHOR BY ID 
 def add(author):
-    sql = 'INSERT INTO authors (first_name, last_name, fb_page, twitter, instagram) VALUES (%s, %s, %s, %s, %s) RETURNING id'
-    values = [author.first_name, author.last_name, author.fb_page, author.twitter, author.instagram]
+    sql = 'INSERT INTO authors (first_name, last_name, fb_page, twitter, instagram, active) VALUES (%s, %s, %s, %s, %s, %s) RETURNING id'
+    values = [author.first_name, author.last_name, author.fb_page, author.twitter, author.instagram, author.active, author.id]
     results = run_sql(sql, values)
     author.id = results[0]['id']
     author.id = id
@@ -64,7 +74,7 @@ def view_all():
     sql = "SELECT * FROM authors"
     results = run_sql(sql)
     for row in results:
-        author = Author(row['first_name'], row['last_name'], row['fb_page'], row['twitter'], row['instagram'],row['id'])
+        author = Author(row['first_name'], row['last_name'], row['fb_page'], row['twitter'], row['instagram'],row['active'],row['id'])
         authors.append(author)
     return authors
         
@@ -84,5 +94,7 @@ def view(id):
             result['fb_page'], 
             result['twitter'], 
             result['instagram'],
+            result['active'],
             result['id'])
+        
     return author

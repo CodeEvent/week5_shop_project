@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<table>
+    <tr>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>View</th>
+        <th>Edit</th>
+    </tr>
+
+    {% for author in authors %}
+
+    <tr>
+        <td>{{author.first_name}}</td>
+        <td>{{author.last_name}}</td>
+        <td><a href="/authors/{{author.id}}">View author</a></td>
+        <td><a href="/authors/{{author.id}}/edit">edit author</a></td>
+    </tr>
+ 
+    {% endfor %}
+
+</table>
+
+
+{% endblock %}
