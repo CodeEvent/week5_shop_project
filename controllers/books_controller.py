@@ -5,14 +5,13 @@ from models.book import Book
 import repositories.book_repo as book_repo
 import repositories.author_repo as author_repo
 
-from repositories.book_repo import select_all
 
 books_blueprint = Blueprint("books", __name__)
 
 # NEW > GET > '/books/new' = #Returns an HTML form to the browser
 @books_blueprint.route("/books/new", methods=['GET']) #NEW
 def books():
-    authors = select_all()
+    authors = author_repo.select_all()
     books = book_repo.select_all()
     return render_template('books/new.html', books=books, authors=authors)    
 
