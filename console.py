@@ -8,7 +8,7 @@ import repositories.author_repo as author_repo
 
 
 author_repo.delete_all()
-# book_repo.delete_all()
+book_repo.delete_all()
 
 author1 = Author('Steven', "Dionisio", 'fb_stdio', 'twitter_stdio', 'insta_stdio', True)
 author_repo.save(author1)

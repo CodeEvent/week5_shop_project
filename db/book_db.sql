@@ -8,8 +8,7 @@ CREATE TABLE authors (
   fb_page VARCHAR(255), 
   twitter VARCHAR(255), 
   instagram VARCHAR(255),
-  active BOOLEAN,
-  author_id INT
+  active BOOLEAN
 );
 
 CREATE TABLE books (
@@ -21,7 +20,7 @@ CREATE TABLE books (
   selling_price DECIMAL,
   genre VARCHAR,
   ISBN_code VARCHAR,
-  author_id INT
+  author_id INT REFERENCES authors[id]
 );
 
 
