@@ -58,8 +58,3 @@ def update_author(id):
 
 
 
-# CREATE > POST > '/tasks'
-#Receives the data from  the form to insert into the DB
-
-
-

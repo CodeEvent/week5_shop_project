@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section>
+
+<a class='basic_link' href="/books">Back</a>
+
+
+
+
+
+<form action="/books/{{book.id}}" method="post">
+  <div>
+    <label for="title">Title:</label>
+    <input type="text" id="title" name="title" value="{{book.title}}" required>
+  </div>
+
+  <div>
+    <label for="description">Description:</label>
+    <input type="text" id="description" name="description" value="{{book.description}}" required>
+  </div>
+
+
+  <div>
+    <label for="stock">Stock:</label>
+    <input type="text" id="stock" name="stock" value="{{book.stock}}" required>
+  </div>
+
+  <div>
+    <label for="buying_cost">Bying cost:</label>
+    <input type="text" id="buying_cost" name="buying_cost" value="{{book.buying_cost}}" required>
+  </div>
+
+
+  <div>
+    <label for="selling_price">Selling price:</label>
+    <input type="text" id="selling_price" name="selling_price" value="{{book.selling_price}}" required>
+  </div>
+
+  <div>
+    <label for="genre">Genre</label>
+    <input type="text" id="genre" name="genre" value="{{book.genre}}" required>
+  </div>
+
+  <div>
+    <label for="isbn_code">ISBN code</label>
+    <input type="text" id="isbn_code" name="isbn_code" value="{{book.isbn_code}}" required>
+  </div>
+
+  <div>
+    <label for="author">Author :</label>
+    <select name="author_id" id="author">
+        {% for author in authors %}
+        <option value="{{author.id}}"
+        {% if book.author.id == author.id %} selected="selected" {% endif %}>
+        {{ author.first_name }} {{ author.last_name }}
+    </option>
+    {% endfor %}
+    </select>
+</div>
+
+  <button type="submit">Update Book</button>
+
+</form>
+</section>
+{% endblock %}

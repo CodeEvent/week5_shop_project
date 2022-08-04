@@ -9,18 +9,19 @@ CREATE TABLE authors (
   twitter VARCHAR(255), 
   instagram VARCHAR(255),
   active BOOLEAN
+
 );
 
 CREATE TABLE books (
   id SERIAL PRIMARY KEY,
   title VARCHAR(255),
-  description VARCHAR,
+  description TEXT,
   stock INT,
-  buying_cost DECIMAL,
-  selling_price DECIMAL,
+  buying_cost INT,
+  selling_price INT,
   genre VARCHAR,
-  ISBN_code VARCHAR,
-  author_id INT REFERENCES authors[id]
+  isbn_code VARCHAR,
+  author_id INT REFERENCES authors(id)
 );
 
 

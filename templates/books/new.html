@@ -1,0 +1,58 @@
+<!-- template creating a new book -->
+{% extends 'base.html' %}
+
+{% block content %}
+<a href="/books">Back</span></i></a>
+
+
+
+<form action="/books" method="post">
+    <div>
+        <label for="title">Book title</label>
+        <input type="text" id="title" name="title" placeholder="Insert book title" required autofocus>
+    </div>
+
+    <div>
+        <label for="description">Book description</label>
+        <input type="text" id="description" name="description" placeholder="Insert book description" required autofocus>
+    </div>
+
+    <div>
+        <label for="stock">Book stock:</label>
+        <input type="text" id="stock" name="stock" placeholder="Insert book stock" required autofocus>
+    </div>
+    
+    <div>
+        <label for="buying_cost">Buying cost:</label>
+        <input type="text" id="buying_cost" name="buying_cost" placeholder="Insert book buying cost" required autofocus>
+    </div>
+
+    <div>
+        <label for="selling_price">Selling_price:</label>
+        <input type="text" id="selling_price" name="selling_price" placeholder="Insert book selling_price" required autofocus>
+    </div>
+
+    <div>
+        <label for="genre">Genre:</label>
+        <input type="text" id="genre" name="genre" placeholder="Insert book genre" required autofocus>
+    </div>
+
+    <div>
+        <label for="isbn_code">ISBN code:</label>
+        <input type="text" id="isbn_code" name="isbn_code" placeholder="Insert book ISBN code" required autofocus>
+    </div>
+
+    <div>
+        <label for="author">Author:</label>
+        <input type="text" id="author" name="author" placeholder="Insert book author" required autofocus>
+    </div>
+
+    
+
+
+
+    <button type="submit">Add book</button>
+
+</form>
+
+{% endblock %}

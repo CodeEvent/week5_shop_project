@@ -1,19 +1,23 @@
-from unittest import result
-
-from zmq import bytes_sockopts
 from db.run_sql import run_sql
+
 from models.book import Book
-from repositories import author_repo
+import repositories.author_repo as author_repo
+import repositories.book_repo as book_repo
+
+from models.book import Book
+from models.author import Author
 
 
+
+#SAVE
 def save(book):
-    sql = "INSERT INTO books (title, description, stock, buying_cost, selling_price, genre, ISBN_code,author) VALUES (%s, %s, %s, %s, %s, %s,%s, %s) RETURNING id"
-    values = [book.title, book.description, book.stock, book.buing_cost, book.selling_price, book.genre, book.ISBN_code, book.author.id]
+    sql = "INSERT INTO books (title, description, stock, buying_cost, selling_price, genre, isbn_code, author_id) VALUES (%s, %s, %s, %s, %s, %s, %s, %s) RETURNING id"
+    values = [book.title, book.description, book.stock, book.buying_cost, book.selling_price, book.genre, book.isbn_code, book.author.id]
     results = run_sql(sql, values)
     id = results[0]['id']
     book.id = id
     return book
-    
+
 #SELECT ONE
 def select(id):
     book = None
@@ -24,7 +28,7 @@ def select(id):
     if results:
         result = results[0]
         author = author_repo.select(result['author_id'])
-        book = Book(result['title'], result['description'], result['stock'], result['selling_price'], result['genre'], result['ISBN_code'], author, result['id'])
+        book = Book(result['title'], result['description'], result['stock'], result['buying_cost'], result['selling_price'], result['genre'], result['isbn_code'], author, result['id'])
     return book
 
 # # SELECT ALL BOOKS
@@ -35,8 +39,8 @@ def select_all():
     
     for row in results:
         author = author_repo.select(row['author_id'])
-        book = Book(row['title'], row['description'], row['stock'], row['selling_price'], row['genre'], row['ISBN_code'], author, row['id'])
-        book.append(book)
+        book = Book(row['title'], row['description'], row['stock'], row['buying_cost'], row['selling_price'], row['genre'], row['isbn_code'], author, row['id'])
+        books.append(book)
     return books
     
 
@@ -53,21 +57,21 @@ def delete(id):
     
 #UPDATE AUTHOR'S OBJECT IN THE DB
 def update(book):
-    sql = "UPDATE book SET (title, description, stock, twitter, selling_price, genre, ISBN_code, author_id) = (%s,%s,%s,%s,%s,%s,%s,%s) WHERE id = %s"
-    values = [book.title, book.description, book.stock, book.buing_cost, book.selling_price, book.genre, book.ISBN_code, book.author.id]
+    sql = "UPDATE books SET (title, description, stock, buying_cost, selling_price, genre, isbn_code, author_id) = (%s,%s,%s,%s,%s,%s,%s, %s) WHERE id = %s"
+    values = [book.title, book.description, book.stock, book.buying_cost, book.selling_price, book.genre, book.isbn_code, book.author.id, book.id]
     run_sql(sql, values)
     
     
 # EDIT BOOK BY ID
 def edit(book):
-    sql = 'UPDATE books SET (title, description, stock, twitter, selling_price, genre, ISBN_code, author_id) = (%s,%s,%s,%s,%s,%s,%s,%s) WHERE id = %s'
-    values = [book.title, book.description, book.stock, book.buing_cost, book.selling_price, book.genre, book.ISBN_code, book.author.id]
+    sql = 'UPDATE books SET (title, description, stock, buying_cost, selling_price, genre, isbn_code, author_id) = (%s,%s,%s,%s,%s,%s,%s,%s) WHERE id = %s'
+    values = [book.title, book.description, book.stock, book.buying_cost, book.selling_price, book.genre, book.isbn_code, book.author]
     run_sql(sql, values)
     
 # ADD BOOK BY ID 
 def add(book):
-    sql = 'INSERT INTO books (title, description, stock, twitter, selling_price, genre, ISBN_code, author_id) VALUES (%s,%s,%s,%s,%s,%s,%s,%s) RETURNING id'
-    values = [book.title, book.description, book.stock, book.buing_cost, book.selling_price, book.genre, book.ISBN_code, book.author.id]
+    sql = 'INSERT INTO books (title, description, stock,buying_cost, selling_price, genre, isbn_code, author_id) VALUES (%s,%s,%s,%s,%s,%s,%s,%s) RETURNING id'
+    values = [book.title, book.description, book.stock, book.buying_cost, book.selling_price, book.genre, book.isbn_code, book.author]
     results = run_sql(sql, values)
     book.id = results[0]['id']
     book.id = id
@@ -80,7 +84,7 @@ def add(book):
 #     results = run_sql(sql)
 #     for row in results:
         
-#         book = Book(row['title'], row['description'], row['stock'], row['selling_price'], row['genre'], row['ISBN_code'], row['author_id'], row['id'])
+#         book = Book(row['title'], row['description'], row['stock'], row['selling_price'], row['genre'], row['isbn_code'], row['author_id'], row['id'])
 #         books.append(book)
 #     return books
         
@@ -94,7 +98,7 @@ def add(book):
 #     result = run_sql(sql, values)[0]
     
 #     if result is not None:
-#         book = Book(result['title'], result['description'], result['stock'], result['selling_price'], result['genre'], result['ISBN_code'], result['author_id'], result['id'])
+#         book = Book(result['title'], result['description'], result['stock'], result['selling_price'], result['genre'], result['isbn_code'], result['author_id'], result['id'])
 #     return book
 
 

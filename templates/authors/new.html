@@ -1,4 +1,8 @@
 <!-- template creating a new author -->
+{% extends 'base.html' %}
+
+{% block content %}
+<a href="/authors">Back</span></i></a>
 
 <form action="/authors" method="post">
     <div>
@@ -37,3 +41,5 @@
     <button type="submit">Add Author</button>
 
 </form>
+
+{% endblock %}

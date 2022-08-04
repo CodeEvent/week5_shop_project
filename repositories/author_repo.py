@@ -4,8 +4,8 @@ from models.author import Author
 
 
 def save(author):
-    sql = "INSERT INTO authors (first_name, last_name, fb_page, twitter, instagram, active, author_id) VALUES (%s, %s, %s, %s, %s, %s, %s) RETURNING id"
-    values = [author.first_name, author.last_name, author.fb_page, author.twitter, author.instagram, author.active, author.id]
+    sql = "INSERT INTO authors (first_name, last_name, fb_page, twitter, instagram, active) VALUES (%s, %s, %s, %s, %s, %s) RETURNING id"
+    values = [author.first_name, author.last_name, author.fb_page, author.twitter, author.instagram, author.active]
     results = run_sql(sql, values)
     id = results[0]['id']
     author.id = id
