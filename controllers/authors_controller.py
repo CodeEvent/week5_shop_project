@@ -27,6 +27,7 @@ def save_added_author():
     fb_page = request.form['fb_page']
     twitter = request.form['twitter']
     instagram = request.form['instagram']
+    active = request.form['active']
     author = Author(first_name, last_name, fb_page, twitter, instagram, active)
     author_repo.save(author)
     return redirect("/authors")
@@ -48,11 +49,13 @@ def update_author(id):
     first_name = request.form['first_name']
     last_name = request.form ['last_name']
     active = request.form['active']
-    author.first_name = first_name
-    author.last_name = last_name
-    author.active = active
-    author_repo.update(author)
-    return redirect('/authors')
+    fb_page = request.form['fb_page']
+    twitter = request.form['twitter']
+    instagram = request.form['instagram']
+    active = request.form['active']
+    author = Author(first_name, last_name, fb_page, twitter, instagram, active)
+    author_repo.save(author)
+    return redirect("/authors")
 
 
 

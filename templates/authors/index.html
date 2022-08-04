@@ -6,8 +6,14 @@
     <tr>
         <th>First name</th>
         <th>Last name</th>
-        <th>View</th>
-        <th>Edit</th>
+        <th>Facebook account</th>
+        <th>Twitter account</th>
+        <th>Instagram account</th>
+
+
+
+
+
     </tr>
 
     {% for author in authors %}
@@ -15,8 +21,11 @@
     <tr>
         <td>{{author.first_name}}</td>
         <td>{{author.last_name}}</td>
+        <td>{{author.fb_page}}</td>
+        <td>{{author.twitter}}</td>
+        <td>{{author.instagram}}</td>
         <td><a href="/authors/{{author.id}}">View author</a></td>
-        <td><a href="/authors/{{author.id}}/edit">edit author</a></td>
+        <td><a href="/authors/{{author.id}}/edit">Edit author</a></td>
     </tr>
  
     {% endfor %}
