@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 
 {% block content %}
+ 
 
-
-<h3>First name</h3>
-<h4>{{author.first_name}}</h4>
+</h3>First name</h3>
+<h4>{{author.first_name}}h4>
 
 <h3>Last name</h3>
 <h4>{{author.last_name}}</h4>
@@ -15,10 +15,22 @@
 <h3>Author's twitter page</h3>
 <h4>{{author.twitter}}</h4>
 
-<h3>Author's instagram page</h3>
+  <h3>Author's instagram page</h3>
 <h4>{{author.instagram}}</h4>
 
 <h3>Author's status</h3>
 <h4>{{author.active}}</h4>
+
+
+
+
+
+
     
+
+<button><a href="/authors/{{author.id}}/edit">Edit author</a></button>
+<button><a href="/authors">Back</a></button>
+
+
+
 {% endblock %}

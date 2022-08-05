@@ -58,6 +58,11 @@ def update_author(id):
     return redirect("/authors")
 
 
+@authors_blueprint.route('/authors/<id>/delete', methods=['POST'])
+def delete(id):
+    author_repo.delete(id)
+    return redirect('/authors')
+
 
 
 

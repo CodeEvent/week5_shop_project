@@ -90,3 +90,7 @@ def create_book():
 
 
 
+@books_blueprint.route('/books/<id>/delete', methods=['POST'])
+def delete(id):
+    book_repo.delete(id)
+    return redirect('/books')

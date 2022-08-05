@@ -2,7 +2,6 @@
 
 {% block content %}
 
-<a class='basic_link' href="/authors">Back</a>
 
 
 <form action="/authors/{{author.id}}" method="post">
@@ -50,6 +49,7 @@
   </div>
 
   <button type="submit">Update author</button>
+  <button><a href="/authors">Back</a></button>
 
 </form>
 

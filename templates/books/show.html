@@ -1,33 +1,44 @@
-{% extends 'base.html' %}
-
-{% block content %}
 
 
-<h1>Book details</h1>
 
-<h3>Book title</h3>
-<h4>{{book.title}}</h4>
 
-<h3>Description</h3>
-<h4>{{book.description}}</h4>
+        {% extends 'base.html' %}
 
-<h3>Stock</h3>
-<h4>{{book.stock}}</h4>
+        {% block content %}
+        
+        
+        <h1>Book details</h1>
+        
+        <h3>Book title</h3>
+        <h4>{{book.title}}</h4>
+        
+        <h3>Description</h3>
+        <h4>{{book.description}}</h4>
+        
+        <h3>Stock</h3>
+        <h4>{{book.stock}}</h4>
+        
+        <h3>Buying cost</h3>
+        <h4>{{book.buying_cost}}</h4>
+        
+        <h3>Selling price</h3>
+        <h4>{{book.selling_price}}</h4>
+        
+        <h3>Genre</h3>
+        <h4>{{book.genre}}</h4>
+        
+        <h3>ISBN</h3>
+        <h4>{{book.isbn_code}}</h4>
+        
+        <h3>Book author</h3>
+        <h4>{{book.author.first_name}} {{book.author.last_name}}</h4>
+        
+            
 
-<h3>Buying cost</h3>
-<h4>{{book.buying_cost}}</h4>
 
-<h3>Selling price</h3>
-<h4>{{book.selling_price}}</h4>
+      <button><a href="/books/{{ book.id }}/edit">Edit book</a></button>
+      <button><a href="/books">Back</a></button>
+  
+      
 
-<h3>Genre</h3>
-<h4>{{book.genre}}</h4>
-
-<h3>ISBN</h3>
-<h4>{{book.isbn_code}}</h4>
-
-<h3>Book author</h3>
-<h4>{{book.author.first_name}} {{book.author.last_name}}</h4>
-
-    
-{% endblock %}
+        {% endblock %}

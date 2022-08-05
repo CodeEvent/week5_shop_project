@@ -2,7 +2,8 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<a href="/authors">Back</span></i></a>
+
+
 
 <form action="/authors" method="post">
     <div>
@@ -39,7 +40,11 @@
 
 
     <button type="submit">Add Author</button>
+    <button><a href="/authors">Back</a></button>
+
 
 </form>
+
+
 
 {% endblock %}

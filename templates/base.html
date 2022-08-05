@@ -1,26 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
 
-<body>
-    <nav> 
-        <ul class="menu">
-            <li><a href="/books">List of books</a></li>
-            <li><a href="/authors">List of Authors</a></li>
-            <li><a href="/books/new">Add a new book</a></li>
-            <li><a href="/authors/new">Add a new author</a></li>
-        </ul>
-    </nav>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ShoBook Invetory</title>
+    </head>
+    <body>
+        <header>
 
-    {% block content %}
+            <h1>The ShoBooky Inventory</h1>
+
+        </header>
+        <nav class="menu">
+
+            <a href="/"><i class="fa fa-fw fa-home"></i>Home</a>
+            <a href="/books"><i class="fa-solid fa-database"></i>List of books</a>
+            <a href="/books/new"><i class="fa-solid fa-align-left"></i> Add a new book </a>
+            <a href="/authors"><i class="fa-solid fa-people-group"></i> Authors registered</a>
+            <a href="/authors/new"><i class="fa-solid fa-handshake"></i> Add a new author</a>
+
+            
+
+
+        </nav>
+        <section id="content">
+
+            {% block content %}
+            {% endblock %}
+        </section>
+
+
+    </body>
+
+</html>
+
+
+
+<!-- <body>
+
+    <tr>
+        <nav>
+
+
+
+
+
+
+            <a href="/books">List of books</a>
+            <a href="/authors">List of authors</a>
+            <a href="/books/new">Add new book</a>
+            <a href="/authors/new">Add new author</a>
+            </ul>
+        </nav>
+
+
+
+
+
+
+
         
-    {% endblock %}
 
 
 </body>
-</html>
+
+</html> -->
