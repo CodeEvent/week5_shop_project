@@ -6,6 +6,20 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>ShoBook Invetory</title>
+
+        <style>
+            body {
+                background-color: white;
+                color: black;
+                text-align: left;
+                line-height: 2;
+            }
+        
+            h1 {
+                background-color: black;
+                color: white;
+        </style>
+        
     </head>
     <body>
         <header>
@@ -15,11 +29,11 @@
         </header>
         <nav class="menu">
 
-            <a href="/"><i class="fa fa-fw fa-home"></i>Home</a>
-            <a href="/books"><i class="fa-solid fa-database"></i>List of books</a>
-            <a href="/books/new"><i class="fa-solid fa-align-left"></i> Add a new book </a>
-            <a href="/authors"><i class="fa-solid fa-people-group"></i> Authors registered</a>
-            <a href="/authors/new"><i class="fa-solid fa-handshake"></i> Add a new author</a>
+   
+            <a href="/books">Home</a>
+            <a href="/books/new">Add a new book </a>
+            <a href="/authors"> Authors registered</a>
+            <a href="/authors/new"></i> Add a new author</a>
 
             
 
@@ -28,6 +42,11 @@
         <section id="content">
 
             {% block content %}
+
+
+
+
+            
             {% endblock %}
         </section>
 

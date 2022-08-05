@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>{{book.title}}</h1>
+
+<p>Deleting {{book.title}} ...</p>
+<nav>
+    <ul>
+        <li><a class='button' href="/books/{{book.id}}/delete_confirmation"><i
+                    class="far fa-trash-alt"></i>Delete</a></li>
+        <li><a class='button' href="/books/{{book.id}}">Cancel</a></li>
+    </ul>
+</nav>
+
+{% endblock  %}

@@ -1,44 +1,78 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<h1>Book details</h1>
+
+<h3>Book title</h3>
+<h4>{{book.title}}</h4>
+
+<h3>Description</h3>
+<h4>{{book.description}}</h4>
+
+<h3>Stock</h3>
+<h4>{{book.stock}}
+    <td>
+
+        <style>
+            .alert {
+                background-color: #f44336;
+                color: white;
+            }
+
+            .success {
+                background-color: #04AA6D;
+                color: white;
+            }
+
+            .info {
+                background-color: #2196F3;
+                color: white;
+            }
+
+            .warning {
+                background-color: #ff9800;
+                color: white;
+            }
+        </style>
+
+        {% if book.stock == 0 %}
+        <i class="alert">OUT OF STOCK</i>
+        {% elif book.stock <= 2 %}
+        <i class="warning">LOW STOCK</i>
+        {% else %}
+        <i class="success">IN STOCK</i>
+        {% endif %}
+        <h1>{{book.model}}</h1>
+</h4>
+</td>
+</h4>
+
+<h3>Buying cost</h3>
+<h4>{{book.buying_cost}}</h4>
+
+<h3>Selling price</h3>
+<h4>{{book.selling_price}}</h4>
+
+<h3>Genre</h3>
+<h4>{{book.genre}}</h4>
+
+<h3>ISBN</h3>
+<h4>{{book.isbn_code}}</h4>
+
+<h3>Book author</h3>
+<h4>{{book.author.first_name}} {{book.author.last_name}}</h4>
 
 
 
 
-        {% extends 'base.html' %}
-
-        {% block content %}
-        
-        
-        <h1>Book details</h1>
-        
-        <h3>Book title</h3>
-        <h4>{{book.title}}</h4>
-        
-        <h3>Description</h3>
-        <h4>{{book.description}}</h4>
-        
-        <h3>Stock</h3>
-        <h4>{{book.stock}}</h4>
-        
-        <h3>Buying cost</h3>
-        <h4>{{book.buying_cost}}</h4>
-        
-        <h3>Selling price</h3>
-        <h4>{{book.selling_price}}</h4>
-        
-        <h3>Genre</h3>
-        <h4>{{book.genre}}</h4>
-        
-        <h3>ISBN</h3>
-        <h4>{{book.isbn_code}}</h4>
-        
-        <h3>Book author</h3>
-        <h4>{{book.author.first_name}} {{book.author.last_name}}</h4>
-        
-            
+<button><a href="/books/{{ book.id }}/edit">Edit book</a></button>
+<button><a href="/books">Back</a></button>
+<td>
+    <form id="delete" action="/books/{{ book.id }}/delete" method="POST"><input type="submit" value="Delete"></form>
+</td>
 
 
-      <button><a href="/books/{{ book.id }}/edit">Edit book</a></button>
-      <button><a href="/books">Back</a></button>
-  
-      
 
-        {% endblock %}
+{% endblock %}

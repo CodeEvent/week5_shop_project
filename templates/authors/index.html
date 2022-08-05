@@ -2,6 +2,7 @@
 
 {% block content %}
 
+
 <table>
     <tr>
         <th>First name</th>
@@ -25,10 +26,16 @@
         <td>{{author.twitter}}</td>
         <td>{{author.instagram}}</td>
         <td>{{author.active}}</td>
+
+
         <td><button><a href="/authors/{{author.id}}">View author</a></button></td>
         <td><button><a href="/authors/{{author.id}}/edit">Edit author</a></button></td>
-        <td><form id="delete" action="/authors/{{ author.id }}/delete" method="POST"><input type="submit" value="Delete"></form></td>
+        <td><button><a href="/books/new">Add new book</a></button></td>
+        <td><form rel="stylesheet" id="delete" action="/authors/{{ author.id }}/delete" method="POST"><input type="submit" value="Delete"></form></td>
+        
     </tr>
+    
+
  
     {% endfor %}
 
