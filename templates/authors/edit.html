@@ -4,35 +4,42 @@
 
 
 
+
+<a class='basic_link' href="/authors/{{author.id}}"><i class="fas fa-angle-double-right fa-rotate-180"></i><span
+  class='basic_link_text'>Back</span></i></a>
+<h1><i class="fas fa-list page_title"></i>Edit session - {{author.first_name}} {{author.last_name}}</h1>
+
+<hr>
+
 <form action="/authors/{{author.id}}" method="post">
-  <div>
-    <label for="first_name">Author's first name:</label>
+
+    <label for="first_name">First name:</label>
     <input type="text" id="first_name" name="first_name" value="{{author.first_name}}" required>
-  </div>
 
-  <div>
-    <label for="last_name">Author's last name:</label>
+
+  
+    <label for="last_name">Last name:</label>
     <input type="text" id="last_name" name="last_name" value="{{author.last_name}}" required>
-  </div>
+  
 
-  <div>
-    <label for="fb_page">Author's facebook page:</label>
+  
+    <label for="fb_page">Facebook:</label>
     <input type="text" id="fb_page" name="fb_page" value="{{author.fb_page}}" required>
-  </div>
+  
 
-  <div>
-    <label for="twitter">Author's twitter page:</label>
+  
+    <label for="twitter">Twitter:</label>
     <input type="text" id="twitter" name="twitter" value="{{author.twitter}}" required>
-  </div>
+  
 
-  <div>
-    <label for="instagram">Author's instagram page:</label>
+  
+    <label for="instagram">Instagram:</label>
     <input type="text" id="instagram" name="instagram" value="{{author.instagram}}" required>
-  </div>
+  
 
 
-  <div>
-    <label for="active">Author status:</label>
+  
+    <label for="active">Active status:</label>
     <select id="active" name="active">
 
       <option value="true"
@@ -46,10 +53,11 @@
       </option>
 
     </select>
-  </div>
+  
 
-  <button type="submit">Update author</button>
-  <button><a href="/authors">Back</a></button>
+
+  <button class='button' type="submit">Update author</button>
+
 
 </form>
 

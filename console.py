@@ -11,15 +11,15 @@ author_repo.select_all()
 author_repo.delete_all()
 
 
-# author1 = Author('Steven', "Dionisio", 'fb_stdio', 'twitter_stdio', 'insta_stdio', True)
-# author_repo.save(author1)
+author1 = Author('Steven', "Dionisio", 'fb_stdio', 'twitter_stdio', 'insta_stdio', True)
+author_repo.save(author1)
 
 # author2 = Author('Harry', "White", 'fb_stdio', 'twitter_stdio', 'insta_stdio', True)
 # author_repo.save(author2)
 
 
-# book1 = Book("365 days", "Descriving life in 365", 3, 3.5, 9.80, "Adventure", "ISBN433-432", author1)
-# book_repo.save(book1)
+book1 = Book("365 days", "Descriving life in 365", 3, 3.5, 9.80, "Adventure", "ISBN433-432", author1)
+book_repo.save(book1)
 
 books = book_repo.select_all()
 book_repo.delete_all()

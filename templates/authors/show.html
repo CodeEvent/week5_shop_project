@@ -2,35 +2,58 @@
 
 {% block content %}
 
-
-<h3>First name</h3>
-<h4>{{author.first_name}}</h4>
-
-<h3>Last name</h3>
-<h4>{{author.last_name}}</h4>
-
-<h3>Author's facebook page</h3>
-<h4>{{author.fb_page}}</h4>
-
-<h3>Author's twitter page</h3>
-<h4>{{author.twitter}}</h4>
-
-  <h3>Author's instagram page</h3>
-<h4>{{author.instagram}}</h4>
-
-<h3>Author's status</h3>
-<h4>{{author.active}}</h4>
+<a class='basic_link' href="/books"><i class="fas fa-angle-double-right fa-rotate-180"></i><span
+    class='basic_link_text'>Back</span></i></a>
 
 
 
+<h1><i class="fas fa-list page_title"></i>{{author.first_name}} {{author.last_name}}</h1>
+
+
+<hr>
+
+
+<table class='results'>
+<td>
+
+  <tr>
+    <th>First name:</th>
+    <td>{{author.first_name}}</td>
+  </tr>
 
 
 
-    
+  <tr>
+    <th>Last name</th>
+    <td>{{author.last_name}}</td>
+  </tr>
 
-<button><a href="/authors/{{author.id}}/edit">Edit author</a></button>
-<button><a href="/authors">Back</a></button>
 
+
+  <tr>
+    <th>Author's facebook page</th>
+    <td>{{author.fb_page}}</td>
+  </tr>
+
+  <tr>
+    <th>Author's twitter page</th>
+    <td>{{author.twitter}}</td>
+  </tr>
+
+
+  <tr>
+    <th>Author's instagram page</th>
+    <td>{{author.instagram}}</td>
+  </tr>
+
+  <tr>
+    <th>Author's status</th>
+    <td>{{author.active}}</td>
+  </tr>
+
+
+</td>
+</table>
 
 
 {% endblock %}
