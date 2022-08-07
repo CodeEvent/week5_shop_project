@@ -3,76 +3,70 @@
 {% block content %}
 
 
-<h1>Book details</h1>
+<a class='basic_link' href="/books"><i class="fas fa-angle-double-right fa-rotate-180"></i><span
+    class='basic_link_text'>Back</span></i></a>
 
-<h3>Book title</h3>
-<h4>{{book.title}}</h4>
 
-<h3>Description</h3>
-<h4>{{book.description}}</h4>
 
-<h3>Stock</h3>
-<h4>{{book.stock}}
+<h1>{{book.title}}</h1>
+
+<div class="shelf">  {% if book.stock == 0 %}
+    <i class="alert">This book is out of stock</i>
+    {% elif book.stock <= 2 %}
+    <i class="warning">We have a low stock for this book</i>
+    {% else %}
+    <i class="success">This book is in stock</i>
+    {% endif %}
+     </div>
+
+<hr>
+<table class='results'>
     <td>
+        <tr>
+            <th>Book description:</th>
+            <td>{{book.description}}</td>
+        </tr>
 
-        <style>
-            .alert {
-                background-color: #f44336;
-                color: white;
-            }
+        <tr>
+            <th>Quantity:</th>
+            <td>{{book.stock}}</td>
+        </tr>
 
-            .success {
-                background-color: #04AA6D;
-                color: white;
-            }
+        <tr>
+            <th>Buying cost:</th>
+            <td>{{book.buying_cost}}</td>
+        </tr>
 
-            .info {
-                background-color: #2196F3;
-                color: white;
-            }
+        <tr>
+            <th>Selling price:</th>
+            <td>{{book.selling_price}}</td>
+        </tr>
+      
+        <tr>
+            <th>Genre:</th>
+            <td>{{book.genre}}</td>
+        </tr>
 
-            .warning {
-                background-color: #ff9800;
-                color: white;
-            }
-        </style>
-
-        {% if book.stock == 0 %}
-        <i class="alert">OUT OF STOCK</i>
-        {% elif book.stock <= 2 %}
-        <i class="warning">LOW STOCK</i>
-        {% else %}
-        <i class="success">IN STOCK</i>
-        {% endif %}
-        <h1>{{book.model}}</h1>
-</h4>
-</td>
-</h4>
-
-<h3>Buying cost</h3>
-<h4>{{book.buying_cost}}</h4>
-
-<h3>Selling price</h3>
-<h4>{{book.selling_price}}</h4>
-
-<h3>Genre</h3>
-<h4>{{book.genre}}</h4>
-
-<h3>ISBN</h3>
-<h4>{{book.isbn_code}}</h4>
-
-<h3>Book author</h3>
-<h4>{{book.author.first_name}} {{book.author.last_name}}</h4>
+        <tr>
+            <th>ISBN Code:</th>
+            <td>{{book.isbn_code}}</td>
+        </tr>
 
 
+        <tr>
+            <th>Author:</th>
+            <td>{{book.author.first_name}} {{book.author.last_name}}</td>
+        </tr>
+
+</td> 
+
+</table>
+<br/>
 
 
-<button><a href="/books/{{ book.id }}/edit">Edit book</a></button>
-<button><a href="/books">Back</a></button>
-<td>
-    <form id="delete" action="/books/{{ book.id }}/delete" method="POST"><input type="submit" value="Delete"></form>
-</td>
 
 
 
 {% endblock %}
+
+

@@ -1,49 +1,42 @@
-<!-- template creating a new author -->
 {% extends 'base.html' %}
-
 {% block content %}
 
+<a class='basic_link' href="/authors"><i class="fas fa-angle-double-right fa-rotate-180"></i><span
+    class='basic_link_text'>Back</span></i></a>
 
+    <h1>Become an author</h1>
+
+<hr>
 <form action="/authors" method="post">
-    <div>
+
         <label for="first_name">First name:</label>
         <input type="text" id="first_name" name="first_name" placeholder="Insert first name" required autofocus>
-    </div>
-    <div>
+
         <label for="last_name">Last name</label>
         <input type="text" id="last_name" name="last_name" placeholder="Insert last name" required autofocus>
-    </div>
 
-    <div>
-        <label for="fb_page">Author's facebook account</label>
+        <label for="fb_page">Your facebook</label>
         <input type="text" id="fb_page" name="fb_page" placeholder="Insert facebook page" required autofocus>
-    </div>
-
-    <div>
-        <label for="twitter">Author's twitter account</label>
+ 
+        <label for="twitter">Your twitter</label>
         <input type="text" id="twitter" name="twitter" placeholder="Insert twitter account" required atutofocus>
-    </div>
 
-    <div>
-        <label for="instagram">Author's instragram account</label>
+        <label for="instagram">Your instragram</label>
         <input type="text" id="instagram" name="instagram" placeholder="Insert instagram account" required autofocus>
-    </div>
 
-    <div>
-        <label for="active">Author is active</label>
+        <label for="active">Plan status</label>
         <select id="active" name="active">
             <option value="true">True</option>
             <option value="false">False</option>
         </select>
-    </div>
+ 
 
 
-    <button type="submit">Add Author</button>
-    <button><a href="/authors">Back</a></button>
+    <button type="submit">Add details</button>
 
 
 </form>
-
+<hr>
 
 
 {% endblock %}

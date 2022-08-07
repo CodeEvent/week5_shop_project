@@ -1,133 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>ShoBook Invetory</title>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 
-        <style>
+    <script src="https://kit.fontawesome.com/b9cf35b5bd.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Antic+Slab&family=Oswald&display=swap" rel="stylesheet">
+    <title>Logged in :: {{ title }}</title>
+</head>
 
-            .header {
-                background-color: blue;
-                text-align: center;
-                padding: 20px;
-              }
-              
-
-            body {
-                background-color: white;
-                text-align: left;
-                line-height: 2;
-            }
-                ul {
-                    list-style-type: none;
-                    margin: 0;
-                    padding: 0;
-                    overflow: hidden;
-                    background-color: #333;
-                  }
-                  
-                  li {
-                    float: left;
-                  }
-                  
-                  li a {
-                    display: block;
-                    color: white;
-                    text-align: center;
-                    padding: 14px 16px;
-                    text-decoration: none;
-                  }
-                  
-                  /* Change the link color to #111 (black) on hover */
-                  li a:hover {
-                    background-color: #111;
-                  }
+  
 
 
-                  button, input[type=button], input[type=reset] {
-                    background-color: #04AA6D;
-                    border: none;
-                    color: white;
-                    padding: 16px 32px;
-                    text-decoration: none;
-                    margin: 4px 2px;
-                    cursor: pointer;
-                  }
-                  
-                  input[type=submit] {
-                    background-color: red;
-                    border: none;
-                    color: white;
-                    padding: 16px 32px;
-                    text-decoration: none;
-                    margin: 4px 2px;
-                    cursor: pointer;
-                  }
+<body>
+  <header>
+      <nav>
+          <ul>
 
-        </style>
-        
-    </head>
+              <li><a href="/books"><i class="fas fa-list"></i>Inventory</a></li>
+              <li><a href="/authors"><i class="fas fa-list"></i>Author list</a></li>
+              <li><a href="/authors/new"><i class="fas fa-user-plus"></i>Become an author</a></li>
+              <li><a href="/books/new"><i class="fas fa-plus"></i>Add a new book</a></li>
+          </ul>
+      </nav>
+  </header>
+  <main>
+      {% block content %}
+      {% endblock %}
+  </main>
 
-    <header> 
-
-        
-    </header>
-    <body>
-
-        <ul>
-            <li><a href="/books">Home</a></li>
-            <li><a href="/books/new">Add a new book </a></li>
-            <li><a href="/authors"> Authors registered</a></li>
-            <li><a href="/authors/new"></i> Add a new author</a>
-
-        </ul>
-        <section id="content">
-
-            {% block content %}
-
-
-
-
-            
-            {% endblock %}
-        </section>
-
-
-    </body>
-
-</html>
-
-
-
-<!-- <body>
-
-    <tr>
-        <nav>
-
-
-
-
-
-
-            <a href="/books">List of books</a>
-            <a href="/authors">List of authors</a>
-            <a href="/books/new">Add new book</a>
-            <a href="/authors/new">Add new author</a>
-            </ul>
-        </nav>
-
-
-
-
-
-
-
-        
-
+  <footer>
+      <p>Shobooky &#169;2022</p>
+  </footer>
 
 </body>
-
-</html> -->

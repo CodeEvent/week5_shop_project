@@ -1,0 +1,287 @@
+body {
+    background: linear-gradient(90deg, rgb(40, 34, 126) 8%, rgb(27, 182, 164) 81%);
+}
+
+h1 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 34px;
+    color: silver;
+    margin-top: 0px;
+}
+
+h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 24px;
+    color: silver;
+    margin-top: 0px;
+}
+
+
+p {
+    font-family: 'Antic Slab', serif;
+    font-size: 18px;
+}
+
+.red {
+    color: #D72F78;
+}
+
+.button,
+.submit,
+.cancel,
+.submit_nomargin {
+    display: inline-block;
+    border: 2px solid #D72F78;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-family: 'Antic Slab', serif;
+    font-size: 18px;
+    text-decoration: none;
+    color: #D72F78;
+    background-color: white;
+}
+
+.button {
+    width: 200px;
+}
+
+.submit {
+    margin-top: 30px;
+}
+
+.button:hover,
+.submit:hover {
+    background-color: #D72F78;
+    color: white;
+}
+
+.button:hover .far,
+.button:hover .fas {
+    color: white;
+}
+
+.basic_link {
+    font-family: 'Antic Slab', serif;
+    font-size: 20px;
+    text-decoration: none;
+    color: #D72F78;
+}
+
+.basic_link_text {
+    padding-left: 10px;
+}
+
+.fa-dumbbell {
+    font-size: 70px;
+    padding: 10px;
+    color: white;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 30px;
+}
+
+#logo {
+    display: grid;
+    grid-template-columns: 0.2fr 1.6fr;
+    grid-template-rows: 0.1fr 0.1fr;
+    gap: 0px 0px;
+    grid-template-areas:
+        "logo_icon gc_logo"
+        "logo_icon gc_sublogo";
+}
+
+.logo_icon {
+    grid-area: logo_icon;
+    padding-left: 20px;
+}
+
+#home {
+    text-decoration: none;
+}
+
+.gc_logo {
+    font-family: 'Oswald', sans-serif;
+    font-size: 34px;
+    color: white;
+    grid-area: gc_logo;
+}
+
+.gc_sublogo {
+    font-family: 'Antic Slab', serif;
+    font-size: 16px;
+    color: white;
+    grid-area: gc_sublogo;
+    padding-left: 20px;
+    font-weight: bolder;
+}
+
+header>nav>ul>li {
+    display: inline;
+    padding-right: 40px;
+    font-size: 28px;
+    color: white;
+}
+
+header>nav>ul>li>a {
+    text-decoration: none;
+    color: rgb(223, 79, 27);
+}
+
+header>nav>ul>li>a>i {
+    display: inline;
+    padding-right: 10px;
+    font-size: 20px;
+    color: white;
+}
+
+main>nav {
+    padding-top: 20px;
+}
+
+main>nav>ul>li {
+    display: inline;
+    padding: 10px;
+    color: #D72F78;
+    font-size: 20px;
+}
+
+main>nav>ul>li>a {
+    text-decoration: none;
+}
+
+main>nav>ul>li>a :hover {
+    background-color: #D72F78;
+    color: white;
+}
+
+main>nav>ul>li>a>i {
+    padding-right: 15px;
+    color: #D72F78;
+    font-size: 24px;
+}
+
+#splash {
+    width: 100%;
+    border-radius: 5px;
+    opacity: 60%;
+}
+
+
+main {
+    background-color: white;
+    margin: 0px 20px;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+ol>li {
+    font-size: 16px;
+    padding-bottom: 6px;
+}
+
+.results>tbody>tr>th {
+    font-family: 'Antic Slab', serif;
+    font-size: 18px;
+    color: silver;
+    padding: 10px 30px 10px 0px;
+    text-align: left;
+}
+
+.results>tbody>tr>td {
+    font-family: 'Oswald', sans-serif;
+    font-size: 18px;
+    padding: 0px 30px 10px 0px;
+}
+
+main>form {
+    display: grid;
+    grid-template-columns: 150px 500px;
+    grid-template-columns:
+        'label input';
+}
+
+main>form>label {
+    font-family: 'Antic Slab', serif;
+    font-size: 18px;
+    padding-top: 10px;
+    grid-area: 'label';
+}
+
+form > span {
+    padding-top: 20px;
+}
+
+form > span > label {
+    font-family: 'Antic Slab', serif;
+    font-size: 18px;
+    padding-left: 30px;
+}
+
+.span_text {
+    font-family: 'Antic Slab', serif;
+    font-size: 18px;
+}
+
+
+main>form>input {
+    margin: 5px;
+    padding: 5px;
+    grid-area: 'input';
+}
+
+.page_title {
+    color: #D72F78;
+    padding-right: 20px;
+}
+
+footer>p {
+    font-size: 18px;
+    color: white;
+    text-align: center;
+    font-family: 'Antic Slab', serif;
+    font-size: 16px;
+}
+
+.filter, .filter_label {
+    font-family: 'Antic Slab', serif;
+    font-size: 18px;
+    padding-right: 30px;
+}
+
+.filter_link {
+    font-family: 'Antic Slab', serif;
+    font-size: 18px;  
+    color: #D72F78;
+}
+
+.cancel {
+    margin-top: 0px;
+}
+
+form > select {
+    margin: 10px;
+    padding: 4px;
+}
+
+.alert {
+  background-color: #f44336;
+  color: white;
+}
+
+.success {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.info {
+  background-color: #2196F3;
+  color: white;
+}
+
+.warning {
+  background-color: #ff9800;
+  color: white;
+}
